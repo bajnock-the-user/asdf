@@ -58,7 +58,7 @@ def solve_problem_6():
     return 2
 
 def solve_problem_7():
-    # Piros golyók száma
+    # Piros golyók száma 
     total_balls = 30
     required_for_three_colors = 23
     required_for_one_color = 21

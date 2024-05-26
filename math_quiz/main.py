@@ -1,4 +1,5 @@
 import math
+from scipy.optimize import fsolve
 
 def feladat_1():
     # Feladat 1: Vonat és alagút
@@ -16,11 +17,11 @@ def feladat_1():
 
 def feladat_2():
     # Feladat 2: Marcipánkockák
-    # Kockák méretei
+    # Kockák élei
     sides = [2, 6, 8]
 
-    # Legnagyobb térfogat
-    max_volume = max(s**3 for s in sides)
+    # Marcipánkockák összeragasztásával kapható legnagyobb térfogat
+    max_volume = sides[0] * sides[1] * sides[2]
 
     print("2:", max_volume)
 
@@ -35,17 +36,22 @@ def feladat_3():
     # Távolság km-ben
     distance = 20
 
-    # Idők kiszámítása
-    t_g_total = distance / g_walk
-    t_j_bike = distance / j_bike
+    # Jancsi ideje
+    def j_time(x):
+        return x / j_bike + (distance - x) / j_walk
 
-    # Idő a gyaloglásra
-    t_j_walk = t_g_total - t_j_bike
+    # Juliska ideje
+    def g_time(x):
+        return x / g_bike + (distance - x) / g_walk
 
-    # Távolság biciklizéssel
-    d_j_walk = j_walk * t_j_walk
+    # Keresztezési pont
+    initial_guess = 10
+    result = fsolve(lambda x: j_time(x) - g_time(x), initial_guess)
 
-    print("3:", round(d_j_walk, 2))
+    # Eredmény kerekítve
+    d_j_bike = round(result[0], 2)
+
+    print("3:", d_j_bike)
 
 def feladat_4():
     # Feladat 4: Kör és rácspontok
@@ -78,7 +84,7 @@ def feladat_6():
 def feladat_7():
     # Feladat 7: Golyók
     total_balls = 30
-    max_greens = 21  # legalább 21 golyó esetén biztosan van zöld
+    max_greens = 21  # legalább 21 golyó esetén biztos, hogy van zöld
 
     red_balls = total_balls - max_greens
 
@@ -118,4 +124,3 @@ if __name__ == "__main__":
     feladat_7()
     feladat_8()
     feladat_9()
- 

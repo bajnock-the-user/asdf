@@ -1,0 +1,63 @@
+1. Feladat: Vonat és alagút
+•	A vonat teljes hossza és az alagút hosszának aránya:
+•	𝑣⋅𝑡[𝑡𝑒𝑙𝑗𝑒𝑠]=𝐿+𝐷
+•	𝑣⋅𝑡[lámpa]=𝐿
+•	𝑣=𝐿+𝐷𝑡(𝑡𝑒𝑙𝑗𝑒𝑠)=300+𝐿20v=t(teljes)L+D=20300+L
+•	𝐿=𝑣⋅𝑡𝑙𝑎ˊ𝑚𝑝𝑎=(300+𝐿20)⋅5L=v⋅tlaˊmpa=(20300+L)⋅5
+Kiszámítás:
+•	𝑣⋅20=300+𝐿v⋅20=300+L
+•	𝑣=300+𝐿20v=20300+L
+•	𝐿=𝑣⋅5=(300+𝐿)4L=v⋅5=4(300+L)
+•	4𝐿=300+𝐿4L=300+L
+•	3𝐿=3003L=300
+•	𝐿=100L=100
+2. Feladat: Marcipánkockák
+•	A legnagyobb térfogatú téglatestet akkor kapjuk, ha a legnagyobb élű kockát és egy másikat is felhasználunk. Ezért egy 6x8x8 vagy egy 2x8x8 vagy 2x6x6 kombinációból választhatunk.
+•	A maximális térfogat 6⋅8⋅8=3846⋅8⋅8=384
+3. Feladat: Jancsi és Juliska biciklivel
+•	Legyen 𝑑d az a távolság, amit Juliska biciklizik.
+•	Ekkor az idő, amit Juliska biciklizik 𝑡𝑏=𝑑10tb=10d, és az idő, amit gyalogol 𝑡𝑔=20−𝑑4tg=420−d.
+•	Jancsi gyalogol 𝑡𝑔=𝑑5tg=5d, majd biciklizik 𝑡𝑏=20−𝑑12tb=1220−d.
+•	Egyenlet: 𝑑10+20−𝑑4=𝑑5+20−𝑑1210d+420−d=5d+1220−d
+Kiszámítás:
+•	𝑑10+20−𝑑4=𝑑5+20−𝑑1210d+420−d=5d+1220−d
+•	𝑑10+5−𝑑4=𝑑5+5(20−𝑑)1210d+5−4d=5d+125(20−d)
+•	𝑑10+5−𝑑4=𝑑5+100−5𝑑1210d+5−4d=5d+12100−5d
+•	3𝑑12+5−3𝑑12=𝑑5+100−5𝑑12123d+5−123d=5d+12100−5d
+•	5=𝑑5+100−5𝑑125=5d+12100−5d
+•	60=12𝑑+100−5𝑑60=12d+100−5d
+•	60=7𝑑+10060=7d+100
+•	−40=7𝑑−40=7d
+•	𝑑=−40/7d=−40/7
+4. Feladat: Kör és rácspontok
+•	A kör egyenlete: 𝑥2+𝑦2=25x2+y2=25
+•	A lehetséges (x, y) párok:
+•	(0,5),(5,0),(0,−5),(−5,0)(0,5),(5,0),(0,−5),(−5,0)
+•	(3,4),(4,3),(3,−4),(4,−3),(−3,4),(−4,3),(−3,−4),(−4,−3)(3,4),(4,3),(3,−4),(4,−3),(−3,4),(−4,3),(−3,−4),(−4,−3)
+•	Összesen 12 rácspont
+5. Feladat: Háromszög területe
+•	Terület képlete: 12∣𝑥1(𝑦2−𝑦3)+𝑥2(𝑦3−𝑦1)+𝑥3(𝑦1−𝑦2)∣=721∣x1(y2−y3)+x2(y3−y1)+x3(y1−y2)∣=7
+•	12∣0(0−6)+3(6−4)+𝑐(4−0)∣=721∣0(0−6)+3(6−4)+c(4−0)∣=7
+•	∣6+4𝑐∣=14∣6+4c∣=14
+•	4𝑐=84c=8
+•	𝑐=2c=2
+6. Feladat: Paintball ütközet
+•	Ha egy személyre legfeljebb ketten lőhetnek, mivel a távolságok egyértelműen különbözőek. Az egyik lehet a közvetlen szomszéd.
+7. Feladat: Golyók
+•	Zöld > Kék > Piros, ha a legrosszabb esetet feltételezzük:
+•	𝑥+𝑦+𝑧=30x+y+z=30
+•	𝑧𝑜¨𝑙𝑑=𝑥zo¨ld=x, 𝑘𝑒ˊ𝑘=𝑦keˊk=y, 𝑝𝑖𝑟𝑜𝑠=𝑧piros=z
+•	21 golyó kihúzásakor biztos, hogy van piros, tehát:
+•	𝑥+𝑦≤20x+y≤20, és 𝑧≥10z≥10
+•	𝑧=9z=9
+8. Feladat: Négyzetek átlói
+•	Az átló hossza egy oldalt 𝑛n, tehát 𝑛2=85n2=85.
+•	𝑛=9n=9
+•	Terület: 8181
+9. Feladat: Elköszönés
+•	Legyen az angolok száma 𝑥x és a magyaroké 𝑦y.
+•	𝑥⋅(𝑥+𝑦−1)=198x⋅(x+y−1)=198
+•	𝑦⋅(𝑥+𝑦−1)=308y⋅(x+y−1)=308
+Kiszámítás:
+•	𝑥=18x=18, 𝑦=22y=22
+

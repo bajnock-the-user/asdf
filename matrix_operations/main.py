@@ -12,7 +12,7 @@ def read_matrices(file):
                 i += 1
             matrices[matrix_name] = matrix
         i += 1
-    return matrices
+    return matrices 
 
 def add_matrices(A, B):
     rows, cols = len(A), len(A[0])

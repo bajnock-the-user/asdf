@@ -13,7 +13,7 @@ def is_palindrome_and_unique_count(s):
     if is_palindrome:
         return f"YES, {unique_count}"
     else:
-        return "NO, -1"
+        return "NO, -1" 
 
 def main():
     # Read input from input.txt

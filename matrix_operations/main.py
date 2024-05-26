@@ -8,7 +8,7 @@ def read_input(file_path):
     reading_matrices = True
 
     for line in lines:
-        line = line.strip()
+        line = line.strip() 
         if not line:
             reading_matrices = False
             continue

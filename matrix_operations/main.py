@@ -67,7 +67,7 @@ def evaluate_expression(expression, matrices):
             result = multiply_matrices(result, next_matrix)
         
         i += 2
-    
+     
     return result
 
 def print_matrix(matrix):

@@ -12,7 +12,7 @@ def find_path(maze):
                 start = (r, c)
             elif maze[r][c] == 'G':
                 goal = (r, c)
-    
+     
     # BFS initialization
     queue = deque([(start, '')])
     visited = set([start])

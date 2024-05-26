@@ -16,7 +16,19 @@ def read_input(file_path):
             matrices[current_matrix] = []
         elif current_matrix is not None:
             matrices[current_matrix].append(list(map(int, line.split())))
+        elif line.startswith('operations'):
+            break
         else:
+            operations.append(line)
+    
+    # Reading the operations
+    operations_start = False
+    for line in lines:
+        line = line.strip()
+        if line.startswith('operations'):
+            operations_start = True
+            continue
+        if operations_start and line:
             operations.append(line)
     
     return matrices, operations
@@ -40,6 +52,24 @@ def multiply_matrices(A, B):
     
     return result
 
+def evaluate_expression(expression, matrices):
+    elements = expression.split()
+    result = matrices[elements[0]]
+    
+    i = 1
+    while i < len(elements):
+        operator = elements[i]
+        next_matrix = matrices[elements[i + 1]]
+        
+        if operator == '+':
+            result = add_matrices(result, next_matrix)
+        elif operator == '*':
+            result = multiply_matrices(result, next_matrix)
+        
+        i += 2
+    
+    return result
+
 def print_matrix(matrix):
     for row in matrix:
         print(' '.join(map(str, row)))
@@ -48,18 +78,10 @@ def main():
     matrices, operations = read_input('input.txt')
     
     for operation in operations:
-        if '+' in operation:
-            A, B = operation.split(' + ')
-            result = add_matrices(matrices[A], matrices[B])
-            print(f"{A} + {B}")
-            print_matrix(result)
-            print()
-        elif '*' in operation:
-            A, B = operation.split(' * ')
-            result = multiply_matrices(matrices[A], matrices[B])
-            print(f"{A} * {B}")
-            print_matrix(result)
-            print()
+        result = evaluate_expression(operation, matrices)
+        print(f"{operation}")
+        print_matrix(result)
+        print()
 
 if __name__ == "__main__":
     main()

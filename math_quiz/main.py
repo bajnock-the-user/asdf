@@ -1,92 +1,126 @@
-def solve_problem_1():
-    # Vonat hosszának kiszámítása
-    tunnel_length = 300  # méter
-    total_time = 20  # másodperc
+import math
+from scipy.optimize import fsolve
+
+def feladat_1():
+    # Feladat 1: Vonat és alagút
+    tunnel_length = 300  # alagút hossza
+    time_in_tunnel = 20  # másodperc
     lamp_time = 5  # másodperc
 
     # Vonat sebessége
-    speed = tunnel_length / total_time  # m/s
+    speed = tunnel_length / time_in_tunnel  # m/s
 
-    # Vonat hossza
+    # A lámpa 5 másodpercig van a vonat felett
     train_length = speed * lamp_time
-    return train_length
 
-def solve_problem_2():
-    # Legnagyobb marcipántégla térfogatának kiszámítása
-    dimensions = [2, 6, 8]
-    dimensions.sort(reverse=True)
-    volume = dimensions[0] * dimensions[1] * 2
-    return volume
+    print("1:", int(train_length))
 
-def solve_problem_3():
-    # Jancsi és Juliska biciklizési távolsága
-    distance_total = 20
-    jancsi_walk_speed = 5
-    jancsi_bike_speed = 12
-    juliska_walk_speed = 4
-    juliska_bike_speed = 10
-    
-    # Átlagos sebesség kiszámítása
-    x = (distance_total / (1/jancsi_bike_speed + 1/juliska_bike_speed - 1/jancsi_walk_speed - 1/juliska_walk_speed))
-    juliska_bike_distance = (distance_total - x) / (juliska_walk_speed / juliska_bike_speed + 1)
-    return juliska_bike_distance
+def feladat_2():
+    # Feladat 2: Marcipánkockák
+    # Kockák élei
+    sides = [2, 6, 8]
 
-def solve_problem_4():
-    # Körvonalon lévő rácspontok száma
+    # Marcipánkockák összeragasztásával kapható legnagyobb térfogat
+    max_volume = sides[0] * sides[1] * sides[2]
+
+    print("2:", max_volume)
+
+def feladat_3():
+    # Feladat 3: Jancsi és Juliska biciklivel
+    # Sebességek km/h
+    j_walk = 5
+    j_bike = 12
+    g_walk = 4
+    g_bike = 10
+
+    # Távolság km-ben
+    distance = 20
+
+    # Jancsi ideje
+    def j_time(x):
+        return x / j_bike + (distance - x) / j_walk
+
+    # Juliska ideje
+    def g_time(x):
+        return x / g_bike + (distance - x) / g_walk
+
+    # Keresztezési pont
+    initial_guess = 10
+    result = fsolve(lambda x: j_time(x) - g_time(x), initial_guess)
+
+    # Eredmény kerekítve
+    d_j_bike = round(result[0], 2)
+
+    print("3:", d_j_bike)
+
+def feladat_4():
+    # Feladat 4: Kör és rácspontok
     radius = 5
-    points = 0
+    grid_points = 0
+
     for x in range(-radius, radius + 1):
         for y in range(-radius, radius + 1):
             if x**2 + y**2 == radius**2:
-                points += 1
-    return points
+                grid_points += 1
 
-def solve_problem_5():
-    # Háromszög területe és c meghatározása
+    print("4:", grid_points)
+
+def feladat_5():
+    # Feladat 5: Háromszög területe
+    # A háromszög csúcspontjai: A(0, 4), B(3, 0), C(c, 6)
     area = 7
-    A = (0, 4)
-    B = (3, 0)
-    
-    c_values = [i for i in range(1, 3)]
-    for c in c_values:
-        if abs(0 * (0 - 6) + 3 * (6 - 4) + c * (4 - 0)) / 2 == area:
-            return c
-    return None
 
-def solve_problem_6():
-    # Legfeljebb hányan lőhetnek ugyanarra az emberre
-    return 2
+    # Terület kiszámítása
+    c = (2 * area) / 3
 
-def solve_problem_7():
-    # Piros golyók száma 
+    print("5:", round(c, 2))
+
+def feladat_6():
+    # Feladat 6: Paintball ütközet
+    max_people_targeting = 2
+
+    print("6:", max_people_targeting)
+
+def feladat_7():
+    # Feladat 7: Golyók
     total_balls = 30
-    required_for_three_colors = 23
-    required_for_one_color = 21
-    blue_and_green = required_for_three_colors - required_for_one_color
-    red = total_balls - required_for_three_colors + blue_and_green
-    return red
+    max_greens = 21  # legalább 21 golyó esetén biztos, hogy van zöld
 
-def solve_problem_8():
-    # Nagy négyzet területe
-    diagonal_area = 85
-    side_length = int((diagonal_area * 2) ** 0.5)
-    return side_length ** 2
+    red_balls = total_balls - max_greens
 
-def solve_problem_9():
-    # Angol résztvevők száma
-    total_goodbyes = 198
-    total_viszlats = 308
-    
-    english = total_goodbyes // 11
-    return english
+    print("7:", red_balls)
+
+def feladat_8():
+    # Feladat 8: Négyzetek átlói
+    total_diagonal_area = 85  # négyzetcentiméter
+    side_length = int(math.sqrt(total_diagonal_area))
+
+    large_square_area = side_length ** 2
+
+    print("8:", large_square_area)
+
+def feladat_9():
+    # Feladat 9: Elköszönés
+    goodbyes = 198
+    viszlats = 308
+
+    # Egyenletek: x * (x + y - 1) = 198, y * (x + y - 1) = 308
+    # Oldjuk meg az egyenleteket
+    for x in range(1, goodbyes + 1):
+        y = (goodbyes + viszlats + 2 - x - x) // 2
+        if x * (x + y - 1) == goodbyes and y * (x + y - 1) == viszlats:
+            english_participants = x
+            break
+
+    print("9:", english_participants)
 
 if __name__ == "__main__":
-    print("1.:", solve_problem_1())
-    print("2.:", solve_problem_2())
-    print("3.:", solve_problem_3())
-    print("4.:", solve_problem_4())
-    print("5.:", solve_problem_5())
-    print("6.:", solve_problem_6())
-    print("7.:", solve_problem_7())
-    print("8.:", solve_problem_8())
-    print("9.:", solve_problem_9())
+    feladat_1()
+    feladat_2()
+    feladat_3()
+    feladat_4()
+    feladat_5()
+    feladat_6()
+    feladat_7()
+    feladat_8()
+    feladat_9()

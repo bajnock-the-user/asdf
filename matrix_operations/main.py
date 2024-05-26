@@ -1,52 +1,68 @@
-def read_matrices(file):
+def read_input(file_path):
+    with open(file_path, 'r') as f:
+        lines = f.read().strip().split('\n')
+    
     matrices = {}
-    lines = file.read().splitlines()
-    i = 0
-    while i < len(lines):
-        if lines[i]:
-            matrix_name = lines[i]
-            i += 1
-            matrix = []
-            while i < len(lines) and lines[i]:
-                matrix.append(list(map(int, lines[i].split())))
-                i += 1
-            matrices[matrix_name] = matrix
-        i += 1
-    return matrices 
+    operations = []
+    matrix_name = None
+    reading_matrices = True
+
+    for line in lines:
+        line = line.strip()
+        if not line:
+            reading_matrices = False
+            continue
+        
+        if reading_matrices:
+            if line.isalpha():
+                matrix_name = line
+                matrices[matrix_name] = []
+            else:
+                matrices[matrix_name].append(list(map(int, line.split())))
+        else:
+            operations.append(line)
+
+    return matrices, operations
 
 def add_matrices(A, B):
-    rows, cols = len(A), len(A[0])
-    return [[A[r][c] + B[r][c] for c in range(cols)] for r in range(rows)]
+    if len(A) != len(B) or len(A[0]) != len(B[0]):
+        raise ValueError("Matrices must have the same dimensions for addition.")
+    
+    return [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]
 
 def multiply_matrices(A, B):
-    rows_A, cols_A = len(A), len(A[0])
-    cols_B = len(B[0])
-    result = [[0] * cols_B for _ in range(rows_A)]
-    for i in range(rows_A):
-        for j in range(cols_B):
-            for k in range(cols_A):
+    if len(A[0]) != len(B):
+        raise ValueError("Number of columns in A must be equal to the number of rows in B.")
+    
+    result = [[0] * len(B[0]) for _ in range(len(A))]
+    
+    for i in range(len(A)):
+        for j in range(len(B[0])):
+            for k in range(len(B)):
                 result[i][j] += A[i][k] * B[k][j]
+    
     return result
 
+def print_matrix(matrix):
+    for row in matrix:
+        print(' '.join(map(str, row)))
+
 def main():
-    # Read matrices from input.txt
-    with open('./input.txt', 'r') as file:
-        matrices = read_matrices(file)
-    
-    # Read operations
-    with open('matrix_operations/operations.txt', 'r') as file:
-        operations = file.read().splitlines()
+    matrices, operations = read_input('input.txt')
     
     for operation in operations:
-        A, op, B = operation.split()
-        if op == '+':
+        if '+' in operation:
+            A, B = operation.split(' + ')
             result = add_matrices(matrices[A], matrices[B])
-        elif op == '*':
+            print(f"{A} + {B}")
+            print_matrix(result)
+            print()
+        elif '*' in operation:
+            A, B = operation.split(' * ')
             result = multiply_matrices(matrices[A], matrices[B])
-        
-        print(f"{A} {op} {B}")
-        for row in result:
-            print(" ".join(map(str, row)))
+            print(f"{A} * {B}")
+            print_matrix(result)
+            print()
 
 if __name__ == "__main__":
     main()

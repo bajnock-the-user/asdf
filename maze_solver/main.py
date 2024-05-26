@@ -8,4 +8,4 @@ def main():
         print_solution(label, solution)
 
 if __name__ == "__main__":
-    main()
+    main() 

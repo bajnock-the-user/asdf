@@ -1,27 +1,24 @@
 def read_input(file_path):
     with open(file_path, 'r') as f:
-        lines = f.read().strip().split('\n')
+        lines = f.readlines()
     
     matrices = {}
     operations = []
-    matrix_name = None
-    reading_matrices = True
+    current_matrix = None
 
     for line in lines:
-        line = line.strip() 
+        line = line.strip()
         if not line:
-            reading_matrices = False
             continue
         
-        if reading_matrices:
-            if line.isalpha():
-                matrix_name = line
-                matrices[matrix_name] = []
-            else:
-                matrices[matrix_name].append(list(map(int, line.split())))
+        if line.isalpha() and line not in matrices:
+            current_matrix = line
+            matrices[current_matrix] = []
+        elif current_matrix is not None:
+            matrices[current_matrix].append(list(map(int, line.split())))
         else:
             operations.append(line)
-
+    
     return matrices, operations
 
 def add_matrices(A, B):

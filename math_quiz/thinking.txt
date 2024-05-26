@@ -1,48 +1,33 @@
-1. Feladat: Vonat és alagút
-•	A vonat teljes hossza és az alagút hosszának aránya:
-•	𝑣⋅𝑡[𝑡𝑒𝑙𝑗𝑒𝑠]=𝐿+𝐷
-•	𝑣⋅𝑡[lámpa]=𝐿
-•	𝑣=(𝐿+𝐷)/𝑡[𝑡𝑒𝑙𝑗𝑒𝑠]=(300+𝐿)/20
-•	𝐿=𝑣⋅𝑡[lámpa]=((300+𝐿)/20)⋅5
-Kiszámítás:
-•	𝑣⋅20=300+𝐿
-•	𝑣=(300+𝐿)/20
-•	𝐿=𝑣⋅5=(300+𝐿)/4
-•	4𝐿=300+𝐿
-•	3𝐿=300
-•	𝐿=100
-2. Feladat: Marcipánkockák
-•	A legnagyobb térfogatú téglatestet akkor kapjuk, ha a legnagyobb élű kockát és egy másikat is felhasználunk. Ezért egy 6x8x8 vagy egy 2x8x8 vagy 2x6x6 kombinációból választhatunk.
-•	A maximális térfogat 6⋅8⋅8=384
-3. Feladat: Jancsi és Juliska biciklivel
-•	Legyen 𝑑 az a távolság, amit Juliska biciklizik.
-•	Ekkor az idő, amit Juliska biciklizik 𝑡[𝑏]=𝑑/10, és az idő, amit gyalogol 𝑡[gy]=(20−𝑑)/4.
-•	Jancsi gyalogol 𝑡[gy]=𝑑/5, majd biciklizik 𝑡[𝑏]=(20−𝑑)/12.
-•	Egyenlet: 𝑑/10+(20−𝑑)/4=𝑑/5+(20−𝑑)/12
+Vonat hosszának kiszámítása:
 
-4. Feladat: Kör és rácspontok
-•	A kör egyenlete: 𝑥2+𝑦2=25
-•	(0,5),(5,0),(0,−5),(−5,0)
-•	(3,4),(4,3),(3,−4),(4,−3),(−3,4),(−4,3),(−3,−4),(−4,−3)
-•	Összesen 12 rácspont
-5. Feladat: Háromszög területe
-•	Terület képlete
-6. Feladat: Paintball ütközet
-•	Ha egy személyre legfeljebb ketten lőhetnek, mivel a távolságok egyértelműen különbözőek. Az egyik lehet a közvetlen szomszéd.
-7. Feladat: Golyók
-•	Zöld > Kék > Piros, ha a legrosszabb esetet feltételezzük:
-•	𝑥+𝑦+𝑧=30
-•	𝑧öld=𝑥, 𝑘𝑒ék=𝑦, 𝑝𝑖𝑟𝑜𝑠=𝑧
-•	21 golyó kihúzásakor biztos, hogy van piros, tehát:
-•	𝑥+𝑦≤20, és 𝑧≥10
-•	𝑧=9
-8. Feladat: Négyzetek átlói
-•	Az átló hossza egy oldalt 𝑛, tehát 𝑛⋅𝑛=85.
-•	Terület: 𝑛⋅𝑛=>85
-9. Feladat: Elköszönés
-•	Legyen az angolok száma 𝑥x és a magyaroké 𝑦y.
-•	𝑥⋅(𝑥+𝑦−1)=198
-•	𝑦⋅(𝑥+𝑦−1)=308
-Kiszámítás:
-•	𝑥=18, 𝑦=22
+A vonat sebessége 
+𝑣=alagút hossza/átjutási idő=300m/20s=15m/s
+A vonat 5 másodpercig van a lámpa felett, tehát a vonat hossza 
+h=15m/s×5s=75m.
 
+Legnagyobb marcipántégla térfogatának kiszámítása:
+A három marcipánkockából készíthető legnagyobb téglatest térfogata 
+6cm×8cm×2cm=96cm3
+
+Jancsi és Juliska kerékpározási távolságának kiszámítása:
+El kell érni, hogy mindketten egyszerre érjenek a mézeskalácsházhoz. Ennek alapján kiszámítjuk a kerékpározási távolságot:
+Jancsi gyalogol és biciklizik adott sebességekkel és távolságokkal. Az egyenletek megoldásával megkapjuk, hogy Juliska 15 km-t biciklizik.
+
+Körvonalon lévő rácspontok száma:
+Meg kell találni a körvonalon lévő egész koordinátájú pontokat. Az origó középpontú 5 egység sugarú körvonalán lévő rácspontok száma 12.
+
+Háromszög területének kiszámítása és c meghatározása:
+A háromszög területének kiszámítása alapján kapjuk, hogy 
+𝑐=1
+
+Paintball lövések:
+Legfeljebb 2 ember lőhet ugyanarra az emberre.
+
+Piros golyók száma:
+Az információk alapján kiszámítva, 6 piros golyó van a dobozban.
+
+Nagy négyzet területe:
+A nagy négyzet területe 169 négyzetcentiméter.
+
+Angol résztvevők száma:
+Az információk alapján 18 angol vett részt a találkozón.
